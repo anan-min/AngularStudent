@@ -45,8 +45,7 @@ export class StudentService {
     });
   }
 
-  insertStudent(
-    id: number,
+  async insertStudent(
     firstName: string,
     lastName: string,
     email: string,
@@ -58,12 +57,21 @@ export class StudentService {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id,
+        id: await this.generateNewStudentId(),
         firstName,
         lastName,
         email,
         phoneNumber,
       }),
     });
+  }
+
+  async generateNewStudentId(): Promise<number> {
+    const students = await this.getAllStudents();
+    let newId = Math.max(...students.map((student) => student.id)) + 1;
+    while (students.some((student) => student.id === newId)) {
+      newId++;
+    }
+    return newId;
   }
 }

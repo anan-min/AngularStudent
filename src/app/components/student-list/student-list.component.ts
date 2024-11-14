@@ -49,10 +49,17 @@ export class StudentListComponent {
   studentService = inject(StudentService);
   students: Student[] = [];
 
-  constructor() {
-    this.studentService
-      .getAllStudents()
-      .then((students) => (this.students = students));
+  constructor() {}
+
+  ngOnInit(): void {
+    this.loadStudents();
+  }
+
+  // Method to load students
+  loadStudents() {
+    this.studentService.getAllStudents().then((students) => {
+      this.students = students;
+    });
   }
 
   deleteStudent(id: number) {
