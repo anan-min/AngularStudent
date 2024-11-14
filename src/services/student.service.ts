@@ -51,13 +51,12 @@ export class StudentService {
     email: string,
     phoneNumber: string
   ) {
-    fetch(this.url, {
+    const data = await fetch(this.url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id: await this.generateNewStudentId(),
         firstName,
         lastName,
         email,
