@@ -1,0 +1,54 @@
+/* Light Theme Navbar */
+nav {
+  background-color: #f8f9fa; /* Light background */
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Center align the items vertically */
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px; /* Add space between the links */
+}
+
+nav ul li a {
+  color: #333; /* Dark text for contrast */
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Style for Home link */
+nav ul li:first-child a {
+  font-size: 20px; /* Larger text for Home */
+  font-weight: bold; /* Bold text for emphasis */
+  padding: 12px 30px; /* Larger padding for the Home link */
+}
+
+/* Change color on hover */
+nav ul li a:hover {
+  background-color: #e2e6ea; /* Light gray background on hover */
+  color: #007bff; /* Blue text color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+}
